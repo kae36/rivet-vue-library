@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true
+  },
   "files": [],
   "references": [
     {
