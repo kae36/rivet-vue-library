@@ -1,6 +1,6 @@
 <template>
-  <div class="rvt-tabs" :data-rvt-tabs="dataRivetTabs">
-    <div class="rvt-tabs__tablist" :aria-label="ariaTabLabel" data-rvt-tablist>
+  <div class="rvt-tabs" :data-rvt-tabs="dataRivetTabs ? dataRivetTabs: 'tabset-1'">
+    <div class="rvt-tabs__tablist" :aria-label="ariaTabLabel ? ariaTabLabel : 'Rivet tabs'" data-rvt-tablist>
       <template v-for="(tabItem, tabIndex) in tabItems" :key="tabIndex">
         <button class="rvt-tabs__tab" data-rvt-tab="tabItem.tabId">{{ tabItem.tabLabel }}</button>
       </template>
@@ -17,11 +17,11 @@ import { computed } from "vue"
 
 const props = withDefaults(
   defineProps<{
-    ariaTabLabel: string = "Rivet tabs"
+    ariaTabLabel: string
     /**
      * The label of the set of tabs
      */
-    dataRivetTabs: string = "tabset-1"
+    dataRivetTabs: string
     /**
      * The labels of the tabs
      */
@@ -39,6 +39,7 @@ const props = withDefaults(
     backgroundColor?: string
   }>(),
   { primary: false }
+)
 
 const emit = defineEmits<{
   (e: "click", id: number): void

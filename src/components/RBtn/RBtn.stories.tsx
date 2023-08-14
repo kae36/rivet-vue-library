@@ -66,8 +66,10 @@ export const Default: Story = {
 export const Outline: Story = {
   render: () => ({
     props: {
+      buttonColor: ButtonColor.primary,
       buttonStyle: ButtonStyle.outline
-    }
+    },
+    template: "<RBtn>Button</RBtn>"
   })
 }
 
@@ -75,7 +77,8 @@ export const Plain: Story = {
   render: () => ({
     props: {
       buttonStyle: ButtonStyle.plain
-    }
+    },
+    template: "<RBtn>Button</RBtn>"
   })
 }
 
