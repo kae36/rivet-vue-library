@@ -1,8 +1,9 @@
+import { Primary } from './../../stories/Button.stories';
 import { mount } from "@vue/test-utils"
 import { describe, beforeEach, it, expect } from "vitest"
 import RBtn from "./RBtn.vue"
 import RBtnExample from "./RBtnExample.vue"
-import { ButtonSize, ButtonStyle, ButtonColor } from "@/@types"
+import { ButtonSize, ButtonStyle, ButtonColor, ButtonWidth } from "@/@types"
 
 describe("RBtn with default style", () => {
   describe("with default color", () => {
@@ -180,6 +181,38 @@ describe("RBtn with plain style", () => {
         "rvt-button--plain r-btn-plain--danger"
       ])
     })
+  })
+})
+
+describe("RBtn with custom width", () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = mount(RBtn, {
+      propsData: {
+        buttonColor: ButtonColor.primary,
+        buttonStyle: ButtonStyle.plain,
+        buttonSize: ButtonSize.normal,
+        buttonWidth: ButtonWidth.fullWidth
+      }
+    })
+
+    it("Should have the full-width class", () => {
+      expect(wrapper.vm.classes).toEqual([
+        "r-btn",
+        "rvt-button",
+        "rvt-button--full-width",
+        "rvt-button--primary"
+      ])
+    })
+  })
+
+  it("Should have default classes", () => {
+    expect(wrapper.vm.classes).toEqual([
+      "r-btn",
+      "rvt-button",
+      "rvt-button--full",
+      "rvt-button--primary"
+    ])
   })
 })
 

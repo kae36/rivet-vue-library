@@ -1,4 +1,4 @@
-import { ButtonColor, ButtonStyle, ButtonSize } from "../@types"
+import { ButtonColor, ButtonStyle, ButtonSize, ButtonWidth } from "../@types"
 
 export const getSizeClass = (buttonSize: ButtonSize) => {
   switch (buttonSize) {
@@ -6,6 +6,15 @@ export const getSizeClass = (buttonSize: ButtonSize) => {
       return ""
     case ButtonSize.small:
       return "rvt-button--small"
+  }
+}
+
+export const getWidthClass = (buttonWidth: ButtonWidth) => {
+  switch (buttonWidth) {
+    case ButtonWidth.fullWidth:
+      return "rvt-button--full-width"
+    case ButtonWidth.normal:
+      return ""
   }
 }
 
@@ -42,5 +51,6 @@ export const getStyleClass = (buttonStyle: ButtonStyle, buttonColor: ButtonColor
         case ButtonColor.success:
           return "rvt-button--plain r-btn-plain--success"
       }
+      break
   }
 }

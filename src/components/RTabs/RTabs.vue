@@ -53,7 +53,7 @@ const classes = computed(() => ({
   "rvt-ts-23": true,
   "rvt-text-bold": true,
   "data-rvt-tab-init": true,
-  "data-rvt-tab": true,
+  // "data-rvt-tab": true,
   "data-rvt-tab": String
 })) 
 </script>

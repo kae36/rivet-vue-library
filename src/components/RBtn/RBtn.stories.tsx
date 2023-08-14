@@ -3,7 +3,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3"
 
 import RBtn from "./RBtn.vue"
-import { ButtonColor, ButtonSize, ButtonStyle } from "../..//@types"
+import { ButtonColor, ButtonSize, ButtonStyle, ButtonWidth } from "../../@types"
 
 const meta: Meta<typeof RBtn> = {
   component: RBtn,
@@ -25,6 +25,12 @@ const meta: Meta<typeof RBtn> = {
       control: {
         type: "select",
         options: Object.values(ButtonStyle)
+      }
+    },
+    buttonWidth: {
+      control: {
+        type: "select",
+        options: Object.values(ButtonWidth)
       }
     }
   },
@@ -63,10 +69,24 @@ export const Default: Story = {
   })
 }
 
+export const Secondary: Story = {
+  render: () => ({
+    title: "RBtn",
+    components: { RBtn },
+    args: {
+      buttonColor: ButtonColor.primary,
+      buttonSize: ButtonSize.normal,
+      buttonStyle: ButtonStyle.outline
+    },
+    template: "<RBtn>Secondary</RBtn>"
+  })
+}
+
 export const Outline: Story = {
   render: () => ({
     props: {
       buttonColor: ButtonColor.primary,
+      buttonSize: ButtonSize.normal,
       buttonStyle: ButtonStyle.outline
     },
     template: "<RBtn>Button</RBtn>"
@@ -76,9 +96,11 @@ export const Outline: Story = {
 export const Plain: Story = {
   render: () => ({
     props: {
+      buttonColor: ButtonColor.primary,
+      buttonSize: ButtonSize.normal,
       buttonStyle: ButtonStyle.plain
     },
-    template: "<RBtn>Button</RBtn>"
+    template: "<RBtn>Plain Button</RBtn>"
   })
 }
 
