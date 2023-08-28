@@ -19,6 +19,8 @@
     "prep-ghpages": "touch ./docs/.nojekyll"
   },
   "dependencies": {
+    "rivet-core": "^2.5.1",
+    "rivet-icons": "^2.0.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },

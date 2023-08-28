@@ -1,4 +1,4 @@
 export enum ButtonSize {
-  normal = "normal",
-  small = "small"
+  small = "small",
+  normal = "normal"
 }
