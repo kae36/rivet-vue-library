@@ -38,8 +38,6 @@ export const DefaultTabs: Story = {
 export const DefaultTabsWithIds: Story = {
   args: {
     ...Default.args,
-    tabIds: [ 'tab1', 'tab2', 'tab3', 'tab4' ],
-    panelIds: [ 'panel1', 'panel2', 'panel3', 'panel4' ],
     label: 'RTabs'
   },
   name: 'Tabs with specified tab and panel id'

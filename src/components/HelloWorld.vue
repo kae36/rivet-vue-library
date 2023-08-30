@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import RTabs from "./RTabs/RTabs.vue"
 defineProps<{
   msg: string
 }>()
@@ -12,6 +13,10 @@ defineProps<{
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
+    <r-tabs :tabNames="['Tab 1', 'Tab 2']" :SelectedTab="0">
+      <slot name="slot-0">Panel one contents</slot>
+      <slot name="slot-1">Panel two contents</slot>
+    </r-tabs>
   </div>
 </template>
 
