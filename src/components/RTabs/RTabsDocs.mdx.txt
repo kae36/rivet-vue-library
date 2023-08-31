@@ -1,0 +1,13 @@
+// import { RTabs } from "./RTabs"
+import * as RTabsStories from "./RTabs.stories.tsx"
+import { Meta, Title, Description } from "@storybook/blocks"
+
+<Meta of={PrimaryDocBlock}>
+
+<RTabs primary={true} label="RTabs" />
+
+<Title />
+
+<Description />
+
+<Story>

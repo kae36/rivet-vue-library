@@ -30,37 +30,49 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onBeforeUnmount, ref, defineComponent } from "vue"
-import useModelWrapper from "../../utils/modelWrapper"
+console.log('hello from RTabs component setup')
 
-interface RTabsProps {
+import { computed, onMounted, onBeforeUnmount, ref, defineComponent } from "vue";
+import useModelWrapper from "../../utils/modelWrapper";
+
+export interface RTabsProps {
   selectedTab?: number
   tabNames?: string[]
   tabsLabel?: string
   tabsAriaLabel?: string
 }
 
+const props = withDefaults(defineProps<RTabsProps>(), {
+  selectedTab: 0,
+  tabNames: ["Tab 1", "Tab 2", "Tab 3", "Tab 4"],
+  tabsLabel: "tabset-1",
+  tabsAriaLabel: "Tabs",
+});
+
+// const slots = defineSlots({
+//   default: () => ["Panel Information for Tab 1", "Panel Information for Tab 2", "Panel Information for Tab 3", "Panel Information for Tab 4"],
+// });
+
 const RTabs = defineComponent({
-  // Corrected: Moved the props definition outside of the setup function
   props: {
     selectedTab: {
       type: Number,
-      default: 0
+      default: 0,
     },
     tabNames: {
       type: Array,
-      default: () => ["Tab 1", "Tab 2", "Tab 3"]
+      default: () => ["Tab 1", "Tab 2", "Tab 3", "Tab 4"],
     },
     tabsLabel: {
       type: String,
-      default: "tabset-1"
+      default: "tabset-1",
     },
     tabsAriaLabel: {
       type: String,
-      default: "Tabs"
+      default: "Tabs",
     },
   },
-  setup(props: RTabsProps, { emit }) {
+  setup(props: RTabsProps) {
     const selectedTabValue = ref(props.selectedTab);
     const tabNames = computed(() => props.tabNames);
     const tabsLabel = computed(() => props.tabsLabel);
@@ -73,8 +85,8 @@ const RTabs = defineComponent({
       }
     }
 
-    // Define the emit function
-    const emit = useModelWrapper(props, emit)
+    // Use the emit function directly
+    const emit = useModelWrapper(props, name => `update:${name}`);
 
     onMounted(() => {
       document.addEventListener("rvtTabActivated", tabActivated);
@@ -89,6 +101,7 @@ const RTabs = defineComponent({
       tabNames,
       tabsLabel,
       tabsAriaLabel,
+      emit, // Expose emit for template
     };
   },
 });
