@@ -47,7 +47,7 @@ const props: RTabsProps = {
   tabsAriaLabel: "Tabs",
 };
 
-const emit = useModelWrapper(props, name => `update:${name}`);
+const emit = useModelWrapper(props, (name: any) => `update:${name}`);
 
 const selectedTabValue = ref(props.selectedTab);
 const tabNames = computed(() => props.tabNames);

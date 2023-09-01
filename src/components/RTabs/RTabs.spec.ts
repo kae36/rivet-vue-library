@@ -13,6 +13,6 @@ describe("Suggest with default props", () => {
   })
 
   it("Should have the default tab names collection", () => {
-    expect(wrapper.vm.tabNames).toEqual(["Tab 1", "Tab 2", "Tab 3"])
+    expect(wrapper.vm.tabNames).toEqual(["Tab 1", "Tab 2", "Tab 3", "Tab 4"])
   })
 })

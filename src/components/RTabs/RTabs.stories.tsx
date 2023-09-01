@@ -2,15 +2,14 @@
 
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RTabs from './RTabs.vue'
-import * as DocBlock from "@storybook/blocks"
+// import * as DocBlock from "@storybook/blocks"
 
 import {
-  Controls,
-  Description,
+  // Controls,
+  // Description,
   Story,
-  Subtitle,
-  Title,
-  Primary as PrimaryDocBlock,
+  // Subtitle,
+  // Primary as PrimaryDocBlock,
 } from '@storybook/blocks'
 
 // Define the component metadata for Storybook
@@ -27,17 +26,17 @@ const meta: Meta<typeof RTabs> = {
   tags: ['autodocs', 'tabs'],
   parameters: {
     componentSubtitle: 'A component for displaying tabs',
-    page: () => (<>
-      <DocBlock.Title />
-      <Description />
-      <Subtitle />
+    // page: () => (<>
+    //   <DocBlock.Title />
+    //   <Description />
+    //   <Subtitle />
 
-      <PrimaryDocBlock />
-      <Controls />
+    //   <PrimaryDocBlock />
+    //   <Controls />
 
-      <Stories includePrimary />
-      </>
-    )
+    //   <Stories includePrimary />
+    //   </>
+    // )
   },
   argTypes: {
     onClick: { actions: 'clicked' },
@@ -79,15 +78,7 @@ export default meta
 type Story = StoryObj<typeof RTabs>
 
 export const Primary: Story = {
-  name: 'Default Tabs',
-  // render: (args) => ({
-  //   components: { RTabs },
-  //   setup() {
-  //     return { args }
-  //   },
-  //   template: '<RTabs { ...args } />'
-  // }),
-  // args: {}
+  name: 'Default Tabs'
 }
 
 export const DefaultTabsWithIds: Story = {
