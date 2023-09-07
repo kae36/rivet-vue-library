@@ -26,17 +26,6 @@ const meta: Meta<typeof RTabs> = {
   tags: ['autodocs', 'tabs'],
   parameters: {
     componentSubtitle: 'A component for displaying tabs',
-    // page: () => (<>
-    //   <DocBlock.Title />
-    //   <Description />
-    //   <Subtitle />
-
-    //   <PrimaryDocBlock />
-    //   <Controls />
-
-    //   <Stories includePrimary />
-    //   </>
-    // )
   },
   argTypes: {
     onClick: { actions: 'clicked' },
